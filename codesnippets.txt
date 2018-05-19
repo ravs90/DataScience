@@ -1,0 +1,36 @@
+people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+
+def split_title_and_name(person):
+    return person.split()[0] + ' ' + person.split()[-1]
+
+#option 1
+for person in people:
+    print(split_title_and_name(person) == (lambda x: x.split()[0] + ' ' + x.split()[-1])(person))
+
+#option 2
+list(map(split_title_and_name, people)) == list(map(lambda person: person.split()[0] + ' ' + person.split()[-1], people))
+
+#converting a function into a list comprehension.
+def times_tables():
+    lst = []
+    for i in range(10):
+        for j in range (10):
+            lst.append(i*j)
+    return lst
+
+times_tables() == [i*j for i in range (10) for j in range (10)]
+
+
+/*
+Many organizations have user ids which are constrained in some way. Imagine you
+work at an internet service provider and the user ids are all two letters
+followed by two numbers (e.g. aa49). Your task at such an organization might be
+to hold a record on the billing activity for each possible user.
+Write an initialization line as a single list comprehension which creates a list
+ of all possible user ids. Assume the letters are all lower case.
+*/
+lowercase = 'abcdefghijklmnopqrstuvwxyz'
+digits = '0123456789'
+answer = [i+j+k+l for i in lowercase for j in lowercase for k in digits for l in digits]
+#print(answer[0])
+correct_answer == answer
